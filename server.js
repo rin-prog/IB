@@ -206,7 +206,7 @@ app.post('/signup', async (req, res) => {
 
     try {
         // Step 1: Validate the input fields
-        if (!email || !password || !fullName || !birthday) {
+        if (!email || !password ) {
             return res.status(400).json({ success: false, message: 'All fields are required.' });
         }
 
