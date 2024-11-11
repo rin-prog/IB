@@ -215,7 +215,7 @@ app.post('/signup', async (req, res) => {
         const hashedPassword = hashPassword(password);
         await
 
-        usersCollection.insertOnr({emaildb:email,password:hashedPassword});
+        usersCollection.insertOne({emaildb:email,password:hashedPassword});
 
         res.json({ success: true, message: 'Account created successfully.', redirectUrl: '/index.html' });
     } catch (error) {
