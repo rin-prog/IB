@@ -57,7 +57,7 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
         body: JSON.stringify({ email: email, password: password })
     })
     .then(response =>
-        return response.json())
+        response.json())
     .then(data => {
         if (data.success) {
             alert('Account created successfully! You can now log in.');
