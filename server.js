@@ -201,8 +201,8 @@ app.post('/logout', async (req, res) => {
 });
 
 // Sign-Up Route
-app.post('/sign-up', async (req, res) => {
-    const { email, password, fullName, birthday, gender, role } = req.body; //here also
+app.post('/signup', async (req, res) => {
+    const { email, password, fullName, birthday } = req.body; //here also
 
     try {
         // Check if the email already exists using the User model
@@ -213,20 +213,9 @@ app.post('/sign-up', async (req, res) => {
         }
 
         const hashedPassword = hashPassword(password);
+        await
 
-        // Create new user document using the User model
-        const newUser = new User({
-            emaildb: email,
-            password: hashedPassword,
-            fullName: fullName,
-            birthday: new Date(birthday),
-            gender: gender,
-            createdAt: new Date(),
-            role: role //we can remove if it doesnt work
-        });
-
-        // Save the new user in the database
-        await newUser.save();
+        usersCollection.insertOnr({emaildb:email,password:hashedPassword});
 
         res.json({ success: true, message: 'Account created successfully.', redirectUrl: '/index.html' });
     } catch (error) {
