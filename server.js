@@ -202,27 +202,46 @@ app.post('/logout', async (req, res) => {
 
 // Sign-Up Route
 app.post('/signup', async (req, res) => {
-    const { email, password, fullName, birthday } = req.body; //here also
+    const { email, password, fullName, birthday } = req.body;
 
     try {
-        // Check if the email already exists using the User model
-        const existingUser = await User.findOne({ emaildb: email });
-        if (existingUser) {
-            res.status(400).json({ success: false, message: 'Email already registered.' });
-            return;
+        // Step 1: Validate the input fields
+        if (!email || !password || !fullName || !birthday) {
+            return res.status(400).json({ success: false, message: 'All fields are required.' });
         }
 
+        if (!validator.isEmail(email)) {
+            return res.status(400).json({ success: false, message: 'Invalid email format.' });
+        }
+
+        // Step 2: Check if the email already exists
+        const existingUser = await User.findOne({ emaildb: email });
+        if (existingUser) {
+            return res.status(400).json({ success: false, message: 'Email already registered.' });
+        }
+
+        // Step 3: Hash the password
         const hashedPassword = hashPassword(password);
-        await
 
-        usersCollection.insertOne({emaildb:email,password:hashedPassword});
+        // Step 4: Create a new user in the database
+        const newUser = new User({
+            emaildb: email,
+            password: hashedPassword,
+            fullName,
+            birthday
+        });
 
+        await newUser.save();
+
+        // Step 5: Return success response
         res.json({ success: true, message: 'Account created successfully.', redirectUrl: '/index.html' });
+
     } catch (error) {
         console.error('Error creating account:', error);
         res.status(500).json({ success: false, message: 'Error creating account.' });
     }
 });
+
 
 
 // Password Reset Request Route
