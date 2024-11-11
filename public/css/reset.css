@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('log.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #fff0f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 1rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 450px;
+}
+
+h1 {
+    text-align: center;
+    color: #ff69b4;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.9);
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ffc0cb;
+    border-radius: 20px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+input::placeholder {
+    color: #ff69b4;
+}
+
+button {
+    background-color: #ff69b4;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+p {
+    text-align: center;
+    margin-top: 1rem;
+    color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff1493;
+    text-decoration: underline;
+}
+
+label[for="show-password"] {
+    color: #ffffff;
+}

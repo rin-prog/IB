@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signupForm" action="http://localhost:3000/signup" method="post" class="form-container">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <div class="password-toggle">
+                <input type="checkbox" id="show-password" onchange="togglePassword()">
+                <label for="show-password">Show password</label>
+            </div>
+            <input type="date" id="birthday" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p><a href="index.html">Already have an account? Login</a></p>
+    </div>
+    
+    <script src="js/signup.js">
+    </script>
+</body>
+</html>

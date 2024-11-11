@@ -1,0 +1,375 @@
+/* Base Styles */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #fff;
+    --accent-color: rgba(255, 255, 255, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --header-height: 70px;
+    --animation-timing: 0.3s;
+}
+
+body {     
+    font-family: 'Georgia', serif;     
+    margin: 0;     
+    min-height: 100vh;     
+    background-image: url('site.jpg');     
+    background-size: cover;     
+    background-position: center;     
+    background-attachment: fixed;     
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {     
+    height: var(--header-height);
+    width: 100%;     
+    display: flex;     
+    justify-content: space-between;     
+    align-items: center;     
+    padding: 0 40px;     
+    background: rgba(0, 0, 0, 0.8);     
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);     
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);     
+    box-shadow: 0 4px 30px var(--shadow-color);     
+    position: fixed;     
+    top: 0;     
+    z-index: 1000;     
+    box-sizing: border-box; 
+}   
+
+.header button,  
+.header #logoutLink {     
+    background: rgba(255, 255, 255, 0.1);     
+    border: 2px solid rgba(255, 255, 255, 0.2);     
+    border-radius: 12px;     
+    font-size: 16px;     
+    color: var(--secondary-color);     
+    font-weight: 600;     
+    cursor: pointer;     
+    padding: 10px 24px;     
+    text-decoration: none;     
+    display: inline-flex;     
+    align-items: center;     
+    transition: all var(--animation-timing) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.header button:hover,
+.header #logoutLink:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header .hello-text {     
+    font-size: 32px;     
+    color: var(--secondary-color);     
+    font-weight: 700;     
+    text-align: center;     
+    flex-grow: 1;     
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.5px;
+}
+
+/* Main Content Container */
+.box-container {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height));
+    padding: calc(var(--header-height) + 20px) 20px 20px;
+    box-sizing: border-box;
+}
+
+/* Fairy Tale Box */
+.fairy-tale-box {
+    margin-top:80px;
+    margin-left: 45px;
+    width: 40%; /* Further reduced width */
+    height: 20%;
+    max-width: 400px; /* Adjusted max-width */
+    padding: 15px; /* Reduced padding */
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Journal Entry Styles */
+.journal-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.journal-entry h2 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center; /* Centered heading */
+}
+
+/* Journal Entry Textarea */
+.journal-entry textarea {
+    width: 90%; /* Keeps it at 90% width but in the smaller box */
+    height: 120px; /* Reduced height */
+    padding: 15px; /* Padding remains the same */
+    font-size: 16px;
+    line-height: 1.6;
+    background: #f8f8f8;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: all var(--animation-timing) ease;
+    color: var(--primary-color);
+    margin: 0 auto;
+    display: block;
+}
+
+.journal-entry textarea:focus {
+    outline: none;
+    border-color: #a0a0a0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tasks Section */
+.tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tasks h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center; /* Centered heading */
+}
+
+.tasks ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.tasks li {
+    font-size: 16px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all var(--animation-timing) ease;
+    color: var(--primary-color);
+    justify-content: center;
+}
+
+.tasks li:last-child {
+    border-bottom: none;
+}
+
+.tasks input[type="checkbox"] {
+    margin-right: 15px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* New Content Section (Align content to the side) */
+.sidebar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.sidebar-left, .sidebar-right {
+    width: 48%; /* Half width for both sides */
+}
+
+.sidebar-left {
+    text-align: left;
+}
+
+.sidebar-right {
+    text-align: right;
+}
+
+/* Totoro Character */
+.totoro {
+    position: fixed;
+    bottom: 30px;
+    width: 120px;
+    height: 140px;
+    z-index: 1000;
+    transition: transform var(--animation-timing) ease;
+}
+
+.totoro:hover {
+    transform: translateY(-10px);
+}
+
+.totoro.right {
+    right: 50px;
+}
+
+.totoro.left {
+    left: 50px;
+    transform: scaleX(-1);
+}
+
+.totoro-body {
+    position: absolute;
+    bottom: 0;
+    width: 120px;
+    height: 100px;
+    background: #707070;
+    border-radius: 60% 60% 45% 45%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.totoro-belly {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 80px;
+    height: 70px;
+    background: #9a9a9a;
+    border-radius: 55% 55% 45% 45%;
+}
+
+.totoro-ear {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #707070;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.totoro-ear.left {
+    top: 5px;
+    left: 20px;
+    transform: rotate(-15deg);
+}
+
+.totoro-ear.right {
+    top: 5px;
+    right: 20px;
+    transform: rotate(15deg);
+}
+
+.totoro-eye {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    top: 40px;
+}
+
+.totoro-eye.left {
+    left: 35px;
+}
+
+.totoro-eye.right {
+    right: 35px;
+}
+
+.totoro-nose {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    top: 50px;
+    left: 55px;
+}
+
+.totoro-arm {
+    position: absolute;
+    width: 25px;
+    height: 45px;
+    background: #707070;
+    border-radius: 25px;
+    right: 5px;
+    top: 45px;
+    transform-origin: top center;
+    animation: wave 3s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(-25deg); }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+    }
+    
+    .header .hello-text {
+        font-size: 24px;
+    }
+    
+    .fairy-tale-box {
+        width: 85%;
+        padding: 20px;
+    }
+    
+    .journal-entry textarea,
+    .tasks ul {
+        width: 95%;
+    }
+    
+    .journal-entry h2 {
+        font-size: 24px;
+    }
+    
+    .tasks h3 {
+        font-size: 20px;
+    }
+    
+    .tasks li {
+        font-size: 14px;
+    }
+    
+    .totoro {
+        width: 80px;
+        height: 100px;
+    }
+    
+    .totoro.right {
+        right: 20px;
+    }
+    
+    .totoro.left {
+        left: 20px;
+    }
+}
